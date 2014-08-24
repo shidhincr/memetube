@@ -1,0 +1,44 @@
+<div class="container">
+    <nav class="navbar navbar-static-top navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Meme Tube</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav">
+                <li class="active"><a ng-href="#">Create A Meme</a></li>
+                <li><a ng-href="#gallery" ng-hide="true">View Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center">
+        <h1>Search for a Youtube video</h1>
+        <p class="lead">
+        <form action="" role="form" novalidate data-ng-submit="vm.searchVideos(query)">
+            <div class="input-group">
+                <input type="text" class="form-control input-lg" ng-model="query">
+                <span class="input-group-btn">
+                <button class="btn btn-lg btn-success" type="submit">Search</button>
+                </span>
+            </div>
+        </form>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" ng-repeat="vid in vm.vids">
+                <div class="col-md-4">
+                  <img ng-src="{{vm.getThumbnail(vid)}}" alt="" class="thumbnail-image">
+                </div>
+                <div class="col-md-8">
+                  <h2>{{vm.getDescription(vid)}}</h2>
+                  <hr>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p>With ♥ from <a href="https://twitter.com/shidhincr">@shidhincr</a></p>
+    </div>
+</div>
